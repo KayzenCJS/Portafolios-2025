@@ -1,7 +1,13 @@
-// Configuración
 const STORAGE_KEY = 'certificates_v1';
-// Si configuras Formspree, coloca aquí tu endpoint, por ejemplo:
-// const FORM_ENDPOINT = 'https://formspree.io/f/xxxxxxxx';
+// Lista estática de certificados en PDF. Coloca tus archivos en assets/certificados/
+// y agrega aquí sus nombres exactos (usa %20 para espacios en rutas si los pones directo en HTML).
+const CERT_PDFS = [
+  'Certificado Mesycy.pdf',
+  'Certificado Super intendencia de bancos.pdf',
+  'Certificados.pdf',
+  'Coursera K5V98QRGYV94.pdf',
+];
+// Rutas de CV ES/EN eliminadas (se mantiene el CV por defecto en el iframe)
 const FORM_ENDPOINT = '';
 
 // Utilidades de almacenamiento
@@ -246,18 +252,20 @@ async function submitForm(e) {
 
 function setupMailto() {
   const link = document.getElementById('mailtoLink');
+  const ids = ['name', 'email', 'subject', 'message'];
+  const elements = ids.map(id => document.getElementById(id));
+  // Si no existe el enlace o los campos (porque se eliminó la sección de contacto), no hacer nada
+  if (!link || elements.some(el => !el)) return;
+
   function update() {
-    const name = encodeURIComponent(document.getElementById('name').value || '');
-    const email = encodeURIComponent(document.getElementById('email').value || '');
-    const subject = encodeURIComponent(document.getElementById('subject').value || 'Contacto');
-    const message = encodeURIComponent(document.getElementById('message').value || '');
+    const name = encodeURIComponent(elements[0]?.value || '');
+    const email = encodeURIComponent(elements[1]?.value || '');
+    const subject = encodeURIComponent(elements[2]?.value || 'Contacto');
+    const message = encodeURIComponent(elements[3]?.value || '');
     const body = `Nombre: ${name}%0AEmail: ${email}%0A%0A${message}`;
     link.href = `mailto:tu_correo@ejemplo.com?subject=${subject}&body=${body}`;
   }
-  ['name','email','subject','message'].forEach(id => {
-    const el = document.getElementById(id);
-    el.addEventListener('input', update);
-  });
+  elements.forEach(el => el?.addEventListener('input', update));
   update();
 }
 
@@ -265,11 +273,72 @@ function setupMailto() {
 function setupCvPreview() {
   const input = document.getElementById('cvFile');
   const viewer = document.querySelector('#cvViewer iframe');
+  if (!input || !viewer) return;
   input.addEventListener('change', () => {
     const file = input.files && input.files[0];
     if (!file) return;
     const url = URL.createObjectURL(file);
     viewer.src = url;
+  });
+}
+
+// Toggle de CV eliminado (se usará siempre el CV por defecto del iframe)
+
+// Traducciones e interruptor de idioma eliminados
+
+// Render estático de certificaciones (PDFs en assets/certificados/)
+function renderCertList() {
+  const container = document.getElementById('certList');
+  if (!container) return;
+  container.innerHTML = '';
+
+  if (!Array.isArray(CERT_PDFS) || CERT_PDFS.length === 0) {
+    const empty = document.createElement('div');
+    empty.className = 'card';
+    empty.textContent = 'Agrega tus archivos PDF a assets/certificados/ y lista sus nombres en script.js (CERT_PDFS).';
+    container.appendChild(empty);
+    return;
+  }
+
+  CERT_PDFS.forEach(fileName => {
+    const item = document.createElement('div');
+    item.className = 'cert-item card';
+
+    const header = document.createElement('div');
+    header.className = 'section-header';
+    const h3 = document.createElement('h3');
+    h3.textContent = fileName;
+    header.appendChild(h3);
+
+    const actions = document.createElement('div');
+    actions.className = 'cv-actions';
+    const encoded = encodeURI(fileName);
+    const download = document.createElement('a');
+    download.className = 'btn';
+    download.href = `assets/certificados/${encoded}`;
+    download.download = '';
+    download.textContent = 'Descargar';
+    const openNew = document.createElement('a');
+    openNew.className = 'btn btn-outline';
+    openNew.href = `assets/certificados/${encoded}`;
+    openNew.target = '_blank';
+    openNew.rel = 'noopener';
+    openNew.textContent = 'Abrir en pestaña';
+    actions.append(download, openNew);
+
+    const viewerWrap = document.createElement('div');
+    viewerWrap.className = 'cv-viewer';
+    const iframe = document.createElement('iframe');
+    iframe.title = `Certificado: ${fileName}`;
+    iframe.loading = 'lazy';
+    iframe.src = `assets/certificados/${encoded}`;
+    const fallback = document.createElement('div');
+    fallback.className = 'cv-fallback';
+    fallback.innerHTML = `Si el PDF no se muestra, puedes <a href="assets/certificados/${encoded}" target="_blank" rel="noopener">abrirlo en una nueva pestaña</a>.`;
+    viewerWrap.append(iframe, fallback);
+
+    item.append(header, actions, viewerWrap);
+    container.appendChild(item);
   });
 }
 
@@ -321,12 +390,11 @@ document.addEventListener('DOMContentLoaded', () => {
   setupThemeToggle();
   setupModal();
   setupCvPreview();
-  setupDropzone();
-  setupToolbar();
+  // Se eliminan características de subida/localStorage para certificaciones.
+  // En su lugar, se renderiza la lista estática de PDFs.
+  renderCertList();
+  // Mantener setupMailto es seguro: no hará nada si no hay elementos.
   setupMailto();
-
   const contactForm = document.getElementById('contactForm');
   if (contactForm) contactForm.addEventListener('submit', submitForm);
-
-  renderGallery();
 });

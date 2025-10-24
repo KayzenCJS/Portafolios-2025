@@ -55,4 +55,4 @@ Nota de privacidad: El uso de `mailto:` depende de la configuración del cliente
 - Etiquetas de formulario y mensajes de estado con `aria-live`.
 
 ## Licencia
-Uso personal. Si necesitas una licencia específica, ajusta este bloque.
+Uso personal. 

@@ -16,121 +16,57 @@
       <div class="brand">
         <div class="avatar" aria-hidden="true">👤</div>
         <div>
-          <h1 class="title">Tu Nombre</h1>
-          <p class="subtitle">Profesional | Especialidad</p>
+          <h1 class="title">Claudeen Jimenez Santos</h1>
+          <p class="subtitle">INGENIERÍA EN SISTEMAS ESTUDIANTE </p>
         </div>
       </div>
       <nav class="nav">
         <a href="#cv">Currículum</a>
         <a href="#certificaciones">Certificaciones</a>
-        <a href="#contacto" class="btn btn-primary">Contacto</a>
+        <p style="font-weight: bold;">claudeencjs@gmail.com</p>
+        <p style="font-weight: bold;">849-403-1509</p>
       </nav>
       <button id="themeToggle" class="icon-btn" aria-label="Cambiar tema">🌓</button>
     </div>
   </header>
 
-  <main>
     <!-- CV Section -->
     <section id="cv" class="section">
       <div class="container">
         <div class="section-header">
           <h2>Currículum</h2>
-          <p>Visualiza tu CV directamente o descarga una copia. Reemplaza el archivo en <code>assets/cv.pdf</code> para actualizarlo.</p>
         </div>
-        <div class="cv-actions">
-          <a class="btn" href="assets/cv.pdf" download>Descargar CV</a>
+       <!--  <div class="cv-actions">
+          <a class="btn" href="assets/Resume%202025.pdf" download>Descargar CV</a>
           <label class="btn btn-outline" for="cvFile">Previsualizar otro CV</label>
           <input id="cvFile" type="file" accept="application/pdf" hidden />
-        </div>
+        </div>-->
         <div class="cv-viewer" id="cvViewer">
-          <iframe title="Visor de CV" src="assets/cv.pdf" loading="lazy"></iframe>
+          <iframe title="Visor de CV" src="assets/Resume%202025.pdf" loading="lazy"></iframe>
           <div class="cv-fallback">
-            <p>Si el PDF no se muestra, puedes <a href="assets/cv.pdf" target="_blank" rel="noopener">abrirlo en una nueva pestaña</a>.</p>
+            <p>Si el PDF no se muestra, puedes <a href="assets/Resume%202025.pdf" target="_blank" rel="noopener">abrirlo en una nueva pestaña</a>.</p>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Certificaciones Section -->
+      <!-- Certificaciones Section -->
     <section id="certificaciones" class="section alt">
       <div class="container">
         <div class="section-header">
           <h2>Certificaciones y Diplomas</h2>
-          <p>Sube imágenes (PNG/JPG/JPEG) o PDFs de tus certificaciones. Se guardarán en tu navegador (localStorage).</p>
+          <p>Visualiza tus certificaciones en PDF como archivos estáticos del proyecto (sin guardarlas en el navegador). Colócalas en <code>assets/certificados/</code> y edita la lista en <code>script.js</code> (<code>CERT_PDFS</code>).</p>
         </div>
 
-        <div class="uploader" id="dropzone">
-          <input type="file" id="certInput" accept="image/*,application/pdf" multiple />
-          <div class="uploader-instructions">
-            <strong>Arrastra y suelta</strong> tus certificados aquí o
-            <label for="certInput" class="link">haz clic para seleccionar</label>.
-          </div>
-          <p class="hint">Consejo: Usa “Exportar” para respaldar y “Importar” para restaurar en otro dispositivo.</p>
-        </div>
-
-        <div class="toolbar">
-          <button class="btn btn-outline" id="exportBtn">Exportar</button>
-          <label class="btn btn-outline" for="importInput">Importar</label>
-          <input type="file" id="importInput" accept="application/json" hidden />
-          <button class="btn btn-danger" id="clearBtn">Limpiar (solo navegador)</button>
-        </div>
-
-        <div id="gallery" class="gallery" aria-live="polite"></div>
+        <div id="certList" class="cert-list"></div>
       </div>
     </section>
 
-    <!-- Contacto Section -->
-    <section id="contacto" class="section">
-      <div class="container">
-        <div class="section-header">
-          <h2>Contacto</h2>
-          <p>¿Tienes una propuesta o idea? Envíame un mensaje.</p>
-        </div>
-
-        <form id="contactForm" class="card">
-          <div class="grid grid-2">
-            <div class="form-control">
-              <label for="name">Nombre</label>
-              <input id="name" name="name" type="text" placeholder="Tu nombre" required />
-            </div>
-            <div class="form-control">
-              <label for="email">Correo</label>
-              <input id="email" name="email" type="email" placeholder="tucorreo@ejemplo.com" required />
-            </div>
-          </div>
-          <div class="form-control">
-            <label for="subject">Asunto</label>
-            <input id="subject" name="subject" type="text" placeholder="Motivo del contacto" />
-          </div>
-          <div class="form-control">
-            <label for="message">Mensaje</label>
-            <textarea id="message" name="message" rows="5" placeholder="Escribe tu mensaje" required></textarea>
-          </div>
-
-          <div class="form-actions">
-            <button type="submit" class="btn btn-primary">Enviar</button>
-            <a id="mailtoLink" class="btn btn-link" href="#" target="_blank" rel="noopener">Enviar con tu cliente de correo</a>
-          </div>
-
-          <p id="formStatus" class="status" role="status" aria-live="polite"></p>
-        </form>
-
-        <div class="note">
-          <p>
-            Puedes configurar el envío con <strong>Formspree</strong>: crea un endpoint y pega la URL en <code>script.js</code> (const FORM_ENDPOINT).
-            Si no configuras nada, se usará el enlace <em>mailto:</em> como alternativa.
-          </p>
-        </div>
-      </div>
-    </section>
+    
   </main>
-
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>© <span id="year"></span> Tu Nombre. Todos los derechos reservados.</p>
+      <p>© <span id="year"></span> ClaudeenCJS. Todos los derechos reservados.</p>
       <div class="social">
-        <a href="#" aria-label="LinkedIn">in</a>
-        <a href="#" aria-label="GitHub">GH</a>
+        <a href="#" aria-label="LinkedIn">www.linkedin.com/in/claudeen-jimenez-santos-2b28b834b</a>
+        <a href="#" aria-label="GitHub">https://github.com/KayzenCJS/Portafolios-2025</a>
         <a href="#" aria-label="X/Twitter">X</a>
       </div>
     </div>
