@@ -24,20 +24,6 @@ Si prefieres alojar archivos en el repositorio en lugar de `localStorage`:
 1. Coloca los archivos en `assets/certificados/`.
 2. En `script.js`, podrías extender la galería para leer un `manifest.json` estático con rutas (no incluido por defecto).
 
-## Formulario de contacto
-Hay dos opciones:
-
-1) Formspree (recomendado)
-- Crea una cuenta en https://formspree.io/ y genera un endpoint (p. ej., `https://formspree.io/f/xxxxxxx`).
-- Abre `script.js` y reemplaza `const FORM_ENDPOINT = ''` por tu endpoint.
-- ¡Listo! Los envíos irán a tu correo según tu configuración de Formspree.
-
-2) mailto (alternativa)
-- En `script.js`, en la función `setupMailto()`, reemplaza `tu_correo@ejemplo.com` por tu correo real.
-- El botón "Enviar con tu cliente de correo" abrirá tu app de correo con los datos precargados.
-
-Nota de privacidad: El uso de `mailto:` depende de la configuración del cliente de correo del visitante.
-
 ## Tema claro/oscuro
 - Botón en la esquina del header. Preferencia guardada en `localStorage`.
 

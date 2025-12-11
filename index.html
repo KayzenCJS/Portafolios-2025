@@ -30,31 +30,45 @@
     </div>
   </header>
 
+    <!-- Sobre mí Section -->
+    <section id="sobre-mi" class="section alt">
+      <div class="container">
+        <div class="section-header">
+          <h2>Sobre mí</h2>
+        </div>
+        <div class="card">
+          <p style="text-align:center";>
+            Claudeen Jimenez Santos, estudiante de Ingeniería en Sistemas en la Universidad O&M en Santo Domingo. Cuento con experiencia laboral en Estados Unidos, donde trabajé en entornos dinámicos que fortalecieron mis habilidades de comunicación, servicio al cliente y adaptación multicultural. En República Dominicana también he realizado pasantías en el área tecnológica, participando en el desarrollo y soporte de sistemas internos.
+Tengo experiencia en programación (C#, SQL, MySQL, Java), manejo de HTML y CSS, ensamblaje, Linux, análisis básico y electrónica. He trabajado en proyectos como sistemas de mensajería interna y automatización de procesos, enfocándome siempre en optimizar flujos y mejorar la eficiencia. Me caracterizo por mi proactividad, responsabilidad y capacidad para resolver problemas en equipos diversos.
+Idiomas: Español (nativo) e Inglés (intermedio, reforzado por mi experiencia laboral en USA).
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- CV Section -->
     <section id="cv" class="section">
       <div class="container">
         <div class="section-header">
           <h2>Currículum</h2>
         </div>
-       <!--  <div class="cv-actions">
-          <a class="btn" href="assets/Resume%202025.pdf" download>Descargar CV</a>
-          <label class="btn btn-outline" for="cvFile">Previsualizar otro CV</label>
-          <input id="cvFile" type="file" accept="application/pdf" hidden />
-        </div>-->
+
         <div class="cv-viewer" id="cvViewer">
+          <div class="loader" role="status" aria-live="polite">Cargando... Espere por favor.</div>
           <iframe title="Visor de CV" src="assets/Resume%202025.pdf" loading="lazy"></iframe>
           <div class="cv-fallback">
             <p>Si el PDF no se muestra, puedes <a href="assets/Resume%202025.pdf" target="_blank" rel="noopener">abrirlo en una nueva pestaña</a>.</p>
           </div>
         </div>
+
+<br>
+
       <!-- Certificaciones Section -->
     <section id="certificaciones" class="section alt">
       <div class="container">
         <div class="section-header">
           <h2>Certificaciones y Diplomas</h2>
-          <p>Visualiza tus certificaciones en PDF como archivos estáticos del proyecto (sin guardarlas en el navegador). Colócalas en <code>assets/certificados/</code> y edita la lista en <code>script.js</code> (<code>CERT_PDFS</code>).</p>
         </div>
-
         <div id="certList" class="cert-list"></div>
       </div>
     </section>

@@ -3,9 +3,11 @@ const STORAGE_KEY = 'certificates_v1';
 // y agrega aquí sus nombres exactos (usa %20 para espacios en rutas si los pones directo en HTML).
 const CERT_PDFS = [
   'Certificado Mesycy.pdf',
-  'Certificado Super intendencia de bancos.pdf',
   'Certificados.pdf',
   'Coursera K5V98QRGYV94.pdf',
+  'cybersecurity fundaments by google.pdf',
+ 'Coursera admin de las tecnologias de la info.pdf',
+
 ];
 // Rutas de CV ES/EN eliminadas (se mantiene el CV por defecto en el iframe)
 const FORM_ENDPOINT = '';
@@ -269,23 +271,63 @@ function setupMailto() {
   update();
 }
 
+// Helper: loader para iframes PDF
+function createLoaderEl(text = 'Cargando... Espere por favor.') {
+  const ld = document.createElement('div');
+  ld.className = 'loader';
+  ld.setAttribute('role', 'status');
+  ld.setAttribute('aria-live', 'polite');
+  ld.textContent = text;
+  // Inline styles to ensure visibility without external CSS
+  ld.style.position = 'absolute';
+  ld.style.inset = '0';
+  ld.style.display = 'grid';
+  ld.style.placeItems = 'center';
+  ld.style.background = 'rgba(11,14,26,.6)';
+  ld.style.color = 'inherit';
+  ld.style.fontWeight = '600';
+  ld.style.zIndex = '2';
+  return ld;
+}
+
+function attachIframeLoader(containerEl, iframeEl) {
+  if (!containerEl || !iframeEl) return;
+  let loader = containerEl.querySelector('.loader');
+  if (!loader) {
+    loader = createLoaderEl();
+    containerEl.insertBefore(loader, iframeEl);
+  } else {
+    loader.style.display = '';
+  }
+  const hide = () => { if (loader) loader.style.display = 'none'; };
+  iframeEl.addEventListener('load', hide, { once: true });
+  try {
+    if (iframeEl.contentDocument && iframeEl.contentDocument.readyState === 'complete') {
+      hide();
+    }
+  } catch (e) {}
+}
+
 // CV Viewer: cargar PDF local temporalmente
 function setupCvPreview() {
   const input = document.getElementById('cvFile');
   const viewer = document.querySelector('#cvViewer iframe');
-  if (!input || !viewer) return;
-  input.addEventListener('change', () => {
-    const file = input.files && input.files[0];
-    if (!file) return;
-    const url = URL.createObjectURL(file);
-    viewer.src = url;
-  });
+  if (!viewer) return;
+  const container = document.getElementById('cvViewer');
+  attachIframeLoader(container, viewer);
+  if (input) {
+    input.addEventListener('change', () => {
+      const file = input.files && input.files[0];
+      if (!file) return;
+      const url = URL.createObjectURL(file);
+      attachIframeLoader(container, viewer);
+      viewer.src = url;
+    });
+  }
 }
 
 // Toggle de CV eliminado (se usará siempre el CV por defecto del iframe)
-
 // Traducciones e interruptor de idioma eliminados
-
 // Render estático de certificaciones (PDFs en assets/certificados/)
 function renderCertList() {
   const container = document.getElementById('certList');
@@ -335,7 +377,9 @@ function renderCertList() {
     const fallback = document.createElement('div');
     fallback.className = 'cv-fallback';
     fallback.innerHTML = `Si el PDF no se muestra, puedes <a href="assets/certificados/${encoded}" target="_blank" rel="noopener">abrirlo en una nueva pestaña</a>.`;
-    viewerWrap.append(iframe, fallback);
+    const loader = createLoaderEl();
+    viewerWrap.append(loader, iframe, fallback);
+    attachIframeLoader(viewerWrap, iframe);
 
     item.append(header, actions, viewerWrap);
     container.appendChild(item);
