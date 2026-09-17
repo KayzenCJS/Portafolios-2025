@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portafolio profesional: Currículum, certificaciones y contacto" />
+  <title>Portafolio Profesional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="avatar" aria-hidden="true">👤</div>
+        <div>
+          <h1 class="title">Claudeen Jimenez Santos</h1>
+          <p class="subtitle">INGENIERÍA EN SISTEMAS ESTUDIANTE </p>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#cv">Currículum</a>
+        <a href="#certificaciones">Certificaciones</a>
+        <p style="font-weight: bold;">claudeencjs@gmail.com</p>
+        <p style="font-weight: bold;">849-403-1509</p>
+      </nav>
+      <button id="themeToggle" class="icon-btn" aria-label="Cambiar tema">🌓</button>
+    </div>
+  </header>
+
+    <!-- Sobre mí Section -->
+    <section id="sobre-mi" class="section alt">
+      <div class="container">
+        <div class="section-header">
+          <h2>Sobre mí</h2>
+        </div>
+        <div class="card">
+          <p style="text-align:center";>
+Estudiante de Ingenieria en Sistemas con experiencia en programacion, analisis de Sistemas, soporte técnico y atencion al
+cliente. Cuento con experiencia en C#, Java y SQL, asi como en resoluciön de incidencias y gestiön de mesas de ayuda.
+Me caracterizo por mi capacidad analitica, adaptaciön råpida y aprendizaje continuo. Poseo certificaciön en ciberseguridad,
+inglés Cl y dominio de herramientas tecnologicas.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CV Section -->
+    <section id="cv" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Currículum</h2>
+        </div>
+
+        <div class="cv-viewer" id="cvViewer">
+          <div class="loader" role="status" aria-live="polite">Cargando... Espere por favor.</div>
+          <iframe title="Visor de CV" src="assets/Claudeen Jimenez Ingeniera.pdf" loading="lazy"></iframe>
+          <div class="cv-fallback">
+            <p>Si el PDF no se muestra, puedes <a href="assets/Claudeen Jimenez Ingeniera.pdf" target="_blank" rel="noopener">abrirlo en una nueva pestaña</a>.</p>
+          </div>
+        </div>
+
+<br>
+
+      <!-- Certificaciones Section -->
+    <section id="certificaciones" class="section alt">
+      <div class="container">
+        <div class="section-header">
+          <h2>Certificaciones y Diplomas</h2>
+        </div>
+        <div id="certList" class="cert-list"></div>
+      </div>
+    </section>
+
+    
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> ClaudeenCJS. Todos los derechos reservados.</p>
+      <div class="social">
+        <a href="#" aria-label="LinkedIn">www.linkedin.com/in/claudeen-jimenez-santos-2b28b834b</a>
+        <a href="#" aria-label="GitHub">https://github.com/KayzenCJS/Portafolios-2025</a>
+        <a href="#" aria-label="X/Twitter">X</a>
+      </div>
+    </div>
+  </footer>
+
+  <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-content" role="document">
+      <button class="icon-btn close" data-close aria-label="Cerrar">✕</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
