@@ -3,11 +3,11 @@ const STORAGE_KEY = 'certificates_v1';
 // y agrega aquí sus nombres exactos (usa %20 para espacios en rutas si los pones directo en HTML).
 const CERT_PDFS = [
   'Certificado Mesycy.pdf',
+  'Certificado Super intendencia de bancos.pdf',
   'Certificados.pdf',
   'Coursera K5V98QRGYV94.pdf',
   'cybersecurity fundaments by google.pdf',
- 'Coursera admin de las tecnologias de la info.pdf',
-
+  'Coursera admin de las tecnologias de la info.pdf',
 ];
 // Rutas de CV ES/EN eliminadas (se mantiene el CV por defecto en el iframe)
 const FORM_ENDPOINT = '';

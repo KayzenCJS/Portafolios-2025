@@ -21,14 +21,34 @@
         </div>
       </div>
       <nav class="nav">
+        <a href="#inicio">Inicio</a>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#experiencia">Experiencia</a>
+        <a href="#educacion">Educación</a>
+        <a href="#proyectos">Proyectos</a>
         <a href="#cv">Currículum</a>
         <a href="#certificaciones">Certificaciones</a>
-        <p style="font-weight: bold;">claudeencjs@gmail.com</p>
-        <p style="font-weight: bold;">849-403-1509</p>
+        <a href="#contacto">Contacto</a>
       </nav>
       <button id="themeToggle" class="icon-btn" aria-label="Cambiar tema">🌓</button>
     </div>
   </header>
+
+  <!-- Inicio Section -->
+  <section id="inicio" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Bienvenido</h2>
+      </div>
+      <div class="card">
+        <p style="text-align:center; font-size: 18px;">
+          Portafolio profesional de <strong>Claudeen Jimenez Santos</strong><br>
+          Estudiante de Ingeniería en Sistemas
+        </p>
+      </div>
+    </div>
+  </section>
 
     <!-- Sobre mí Section -->
     <section id="sobre-mi" class="section alt">
@@ -46,6 +66,116 @@ Idiomas: Español (nativo) e Inglés (intermedio, reforzado por mi experiencia l
       </div>
     </section>
 
+    <!-- Habilidades Section -->
+    <section id="habilidades" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Habilidades</h2>
+        </div>
+        <div class="skills-grid">
+          <div class="card skill-category">
+            <h3>Lenguajes de Programación</h3>
+            <ul>
+              <li>C#</li>
+              <li>Java</li>
+              <li>SQL</li>
+              <li>MySQL</li>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>Visual Basic</li>
+              <li>Razor</li>
+            </ul>
+          </div>
+          <div class="card skill-category">
+            <h3>Herramientas y Tecnologías</h3>
+            <ul>
+              <li>Linux</li>
+              <li>Git/GitHub</li>
+              <li>Jira</li>
+              <li>TeamViewer</li>
+              <li>Microsoft Office</li>
+            </ul>
+          </div>
+          <div class="card skill-category">
+            <h3>Áreas de Experiencia</h3>
+            <ul>
+              <li>Soporte técnico</li>
+              <li>Análisis de sistemas</li>
+              <li>Mesa de ayuda</li>
+              <li>Resolución de incidencias</li>
+              <li>Programación</li>
+              <li>Atención al cliente</li>
+              <li>Análisis de requerimientos</li>
+              <li>Diagnóstico de hardware</li>
+              <li>Mantenimiento de sistemas</li>
+              <li>Configuración de sistemas operativos</li>
+              <li>Bases de datos</li>
+              <li>Desarrollo web</li>
+            </ul>
+          </div>
+          <div class="card skill-category">
+            <h3>Idiomas</h3>
+            <ul>
+              <li>Español: Nativo</li>
+              <li>Inglés: C1</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experiencia Section -->
+    <section id="experiencia" class="section alt">
+      <div class="container">
+        <div class="section-header">
+          <h2>Experiencia</h2>
+        </div>
+        <div class="card">
+          <h3>Experiencia Laboral en Estados Unidos</h3>
+          <p>Trabajo en entornos dinámicos fortaleciendo habilidades de comunicación, servicio al cliente y adaptación multicultural.</p>
+          <br>
+          <h3>Pasantías en República Dominicana</h3>
+          <p>Participación en el desarrollo y soporte de sistemas internos, incluyendo sistemas de mensajería interna y automatización de procesos.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Educación Section -->
+    <section id="educacion" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Educación</h2>
+        </div>
+        <div class="card">
+          <h3>Universidad O&M</h3>
+          <p><strong>Ingeniería en Sistemas</strong></p>
+          <p>2023 - Actualidad</p>
+          <br>
+          <h3>Politécnico Cardenal Sancha Fe y Alegría</h3>
+          <p>2018 - 2022</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proyectos Section -->
+    <section id="proyectos" class="section alt">
+      <div class="container">
+        <div class="section-header">
+          <h2>Proyectos</h2>
+        </div>
+        <div class="projects-grid">
+          <div class="card project-card">
+            <h3>Sistema de Mensajería Interna</h3>
+            <p>Desarrollo de sistema de comunicación interna para optimizar flujos de trabajo.</p>
+          </div>
+          <div class="card project-card">
+            <h3>Automatización de Procesos</h3>
+            <p>Implementación de soluciones automatizadas para mejorar la eficiencia operativa.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- CV Section -->
     <section id="cv" class="section">
       <div class="container">
@@ -55,9 +185,9 @@ Idiomas: Español (nativo) e Inglés (intermedio, reforzado por mi experiencia l
 
         <div class="cv-viewer" id="cvViewer">
           <div class="loader" role="status" aria-live="polite">Cargando... Espere por favor.</div>
-          <iframe title="Visor de CV" src="assets/Resume%202025.pdf" loading="lazy"></iframe>
+          <iframe title="Visor de CV" src="assets/Claudeen%20Jimenez%20Ingeniera.pdf" loading="lazy"></iframe>
           <div class="cv-fallback">
-            <p>Si el PDF no se muestra, puedes <a href="assets/Resume%202025.pdf" target="_blank" rel="noopener">abrirlo en una nueva pestaña</a>.</p>
+            <p>Si el PDF no se muestra, puedes <a href="assets/Claudeen%20Jimenez%20Ingeniera.pdf" target="_blank" rel="noopener">abrirlo en una nueva pestaña</a>.</p>
           </div>
         </div>
 
@@ -70,6 +200,21 @@ Idiomas: Español (nativo) e Inglés (intermedio, reforzado por mi experiencia l
           <h2>Certificaciones y Diplomas</h2>
         </div>
         <div id="certList" class="cert-list"></div>
+      </div>
+    </section>
+
+    <!-- Contacto Section -->
+    <section id="contacto" class="section alt">
+      <div class="container">
+        <div class="section-header">
+          <h2>Contacto</h2>
+        </div>
+        <div class="card">
+          <p><strong>Email:</strong> claudeencjs@gmail.com</p>
+          <p><strong>Teléfono:</strong> 849-403-1509</p>
+          <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/claudeen-jimenez-santos-2b28b834b" target="_blank" rel="noopener">www.linkedin.com/in/claudeen-jimenez-santos-2b28b834b</a></p>
+          <p><strong>GitHub:</strong> <a href="https://github.com/KayzenCJS/Portafolios-2025" target="_blank" rel="noopener">github.com/KayzenCJS/Portafolios-2025</a></p>
+        </div>
       </div>
     </section>
 
@@ -94,6 +239,6 @@ Idiomas: Español (nativo) e Inglés (intermedio, reforzado por mi experiencia l
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

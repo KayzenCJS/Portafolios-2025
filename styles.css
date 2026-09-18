@@ -69,6 +69,21 @@ body {
 
 /* Cards and panels */
 .card { background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01)); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius); box-shadow: var(--shadow-sm); padding: 18px; }
+.card h3 { margin-top: 0; margin-bottom: 12px; font-size: 18px; }
+.card ul { margin: 0; padding-left: 20px; }
+.card li { margin-bottom: 6px; }
+.card a { color: var(--primary); text-decoration: none; }
+.card a:hover { text-decoration: underline; }
+
+/* Skills Grid */
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+.skill-category { transition: transform 0.2s ease; }
+.skill-category:hover { transform: translateY(-2px); }
+
+/* Projects Grid */
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+.project-card { transition: transform 0.2s ease; }
+.project-card:hover { transform: translateY(-2px); }
 
 /* CV */
 .cv-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 14px; }
