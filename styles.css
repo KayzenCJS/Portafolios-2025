@@ -2,8 +2,8 @@
 :root {
   --bg: #0f1220;
   --panel: #161a2b;
-  --text: #e7e9ee;
-  --muted: #a7aec4;
+  --text: #DCC5B2;
+  --muted: #c4b8a8;
   --primary: #6c8cff;
   --primary-600: #5978ff;
   --accent: #22d3ee;
@@ -75,15 +75,33 @@ body {
 .card a { color: var(--primary); text-decoration: none; }
 .card a:hover { text-decoration: underline; }
 
-/* Skills Grid */
-.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
-.skill-category { transition: transform 0.2s ease; }
-.skill-category:hover { transform: translateY(-2px); }
+/* Hero Section */
+.hero-section { padding: 80px 0; }
+.hero-card { background: linear-gradient(135deg, rgba(108,140,255,0.15), rgba(34,211,238,0.1)); border: 1px solid rgba(108,140,255,0.3); border-radius: 20px; padding: 40px; text-align: center; box-shadow: 0 20px 60px rgba(108,140,255,0.2); }
+.hero-content { max-width: 700px; margin: 0 auto; }
+.hero-title { font-size: 42px; margin: 0 0 8px; background: linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hero-subtitle { font-size: 20px; color: var(--muted); margin: 0 0 24px; font-weight: 500; }
+.hero-description { font-size: 16px; line-height: 1.8; color: var(--text); margin: 0 0 32px; }
+.hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+/* Skills Container */
+.skills-container { display: flex; flex-direction: column; gap: 24px; }
+.skill-group { background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)); border: 1px solid rgba(255,255,255,.06); border-radius: 16px; padding: 20px; transition: transform 0.3s ease, border-color 0.3s ease; }
+.skill-group:hover { transform: translateY(-4px); border-color: rgba(108,140,255,0.3); }
+.skill-group-title { margin: 0 0 16px; font-size: 16px; color: var(--primary); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+.skill-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+.skill-tag { background: rgba(108,140,255,0.1); border: 1px solid rgba(108,140,255,0.2); color: var(--text); padding: 8px 16px; border-radius: 20px; font-size: 14px; font-weight: 500; transition: all 0.3s ease; cursor: default; }
+.skill-tag:hover { background: rgba(108,140,255,0.2); border-color: rgba(108,140,255,0.4); transform: translateY(-2px); }
 
 /* Projects Grid */
 .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
-.project-card { transition: transform 0.2s ease; }
+.project-card { transition: transform 0.2s ease; display: flex; flex-direction: column; }
 .project-card:hover { transform: translateY(-2px); }
+.project-card p { flex-grow: 1; margin-bottom: 16px; }
+.project-actions { display: flex; gap: 10px; margin-top: auto; }
+.video-btn { opacity: 0.6; cursor: not-allowed; gap: 8px; }
+.video-icon { font-size: 12px; }
+.video-btn:hover { opacity: 0.6; transform: none; box-shadow: none; }
 
 /* CV */
 .cv-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 14px; }
@@ -136,13 +154,27 @@ body {
   .nav { display: flex; }
   .grid-2 { grid-template-columns: repeat(2, 1fr); }
   .title { font-size: 20px; }
+  .hero-title { font-size: 52px; }
+  .hero-card { padding: 60px; }
+}
+
+@media (max-width: 759px) {
+  .hero-section { padding: 40px 0; }
+  .hero-card { padding: 30px 20px; }
+  .hero-title { font-size: 32px; }
+  .hero-subtitle { font-size: 18px; }
+  .hero-description { font-size: 15px; }
+  .hero-actions { flex-direction: column; }
+  .hero-actions .btn { width: 100%; justify-content: center; }
+  .skill-tags { gap: 8px; }
+  .skill-tag { font-size: 13px; padding: 6px 12px; }
 }
 
 /* Light theme (toggle) */
 .light {
   --bg: #f7f8fb;
   --panel: #ffffff;
-  --text: #0f1220;
+  --text: #000000;
   --muted: #59607a;
   --primary: #3b82f6;
   --primary-600: #2563eb;
@@ -153,3 +185,6 @@ body {
 }
 .light .site-header { background: rgba(255,255,255,0.8); border-bottom-color: rgba(0,0,0,.06); }
 .light .site-footer { border-top-color: rgba(0,0,0,.06); }
+.light .hero-card { background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(6,182,212,0.08)); border-color: rgba(59,130,246,0.2); box-shadow: 0 20px 60px rgba(59,130,246,0.15); }
+.light .skill-tag { background: rgba(59,130,246,0.08); border-color: rgba(59,130,246,0.15); }
+.light .skill-tag:hover { background: rgba(59,130,246,0.15); border-color: rgba(59,130,246,0.25); }
